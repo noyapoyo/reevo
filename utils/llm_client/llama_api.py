@@ -25,6 +25,6 @@ class LlamaAPIClient(OpenAIClient):
         assert n == 1
         response = self.client.chat.completions.create(
             model=self.model, messages=messages, temperature=temperature, stream=False,
-            max_tokens=1024, timeout=100,
+            timeout=100,
         )
         return response.choices

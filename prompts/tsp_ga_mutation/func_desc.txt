@@ -1,0 +1,3 @@
+The mutate function receives one tour, a numpy random generator, and a task context. It returns one mutated tour as a valid permutation of 0..n-1.
+
+The ctx dictionary includes n, distance_matrix/dist_matrix, and local_search_budget. Mutations should be bounded and usually conservative. If distance_matrix is used for local improvement, only inspect a bounded number of candidate edges controlled by local_search_budget. Do not compute full tour length inside the operator. Do not use unbounded while loops.

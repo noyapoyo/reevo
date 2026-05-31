@@ -1,0 +1,8 @@
+def mutate_v1(route: list[int], rng, ctx: dict) -> list[int]:
+    n = len(route)
+    if n <= 2:
+        return route[:]
+    child = route[:]
+    i, j = sorted(rng.choice(n, size=2, replace=False).astype(int).tolist())
+    child[i], child[j] = child[j], child[i]
+    return child

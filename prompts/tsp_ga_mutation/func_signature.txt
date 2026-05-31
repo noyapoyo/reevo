@@ -1,0 +1,1 @@
+def mutate_v{version}(route: list[int], rng, ctx: dict) -> list[int]:

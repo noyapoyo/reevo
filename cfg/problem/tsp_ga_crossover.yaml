@@ -1,0 +1,6 @@
+problem_name: tsp_ga_crossover
+problem_type: constructive
+obj_type: min
+problem_size: 0
+func_name: crossover
+description: Solving configured optimization instances with the same taskGA used by CoCo-GA. The generated heuristic is the GA crossover operator; mutation is held fixed to a baseline partner during evaluation.

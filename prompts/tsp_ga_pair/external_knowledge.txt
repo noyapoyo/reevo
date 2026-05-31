@@ -1,0 +1,3 @@
+- Preserve useful parent adjacency instead of rebuilding a random permutation from scratch.
+- Use distance_matrix only for bounded local edge choices; taskGA owns full tour scoring.
+- Keep mutation conservative when parents already contain good structure; use ctx["local_search_budget"] for any local edge checks.

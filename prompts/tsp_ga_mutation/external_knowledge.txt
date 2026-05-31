@@ -1,0 +1,3 @@
+- Use bounded 2-swap, insertion, reversal, or small edge repair.
+- Mutation should add diversity without erasing the current tour structure.
+- Return exactly one feasible permutation; taskGA will score the full tour.

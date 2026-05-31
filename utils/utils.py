@@ -105,7 +105,13 @@ def extract_code_from_generator(content):
 
 
 def filter_code(code_string):
-    """Remove lines containing signature and import statements."""
+    """Remove top-level signature/import lines while preserving the full body.
+
+    The original ReEvo prompts evolved a single short function and stopped after
+    the first return. GA-operator prompts can contain nested crossover/mutation
+    functions, so stopping at the first nested return would truncate the parent
+    code shown to the reflector/generator.
+    """
     lines = code_string.split('\n')
     filtered_lines = []
     for line in lines:
@@ -115,9 +121,6 @@ def filter_code(code_string):
             continue
         elif line.startswith('from'):
             continue
-        elif line.startswith('return'):
-            filtered_lines.append(line)
-            break
         else:
             filtered_lines.append(line)
     code_string = '\n'.join(filtered_lines)

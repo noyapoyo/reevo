@@ -1,0 +1,9 @@
+The ga_operators function returns both operators used by taskGA. It must return either {"crossover": crossover_fn, "mutate": mutation_fn} or (crossover_fn, mutation_fn).
+
+The returned crossover function must have this signature:
+def crossover(parent1: list[int], parent2: list[int], rng, ctx: dict) -> list[int]
+
+The returned mutation function must have this signature:
+def mutate(route: list[int], rng, ctx: dict) -> list[int]
+
+Tours are permutations of 0..n-1. The ctx dictionary includes n, distance_matrix/dist_matrix, and local_search_budget. If distance_matrix is used for local improvement, only inspect a bounded number of candidate edges controlled by local_search_budget. Do not compute full tour length inside the operator. Do not use unbounded while loops.

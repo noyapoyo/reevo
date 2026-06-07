@@ -1,3 +1,4 @@
+```python
 def ga_operators_v1():
     def crossover(parent1: list[int], parent2: list[int], rng, ctx: dict) -> list[int]:
         n = len(parent1)
@@ -25,3 +26,4 @@ def ga_operators_v1():
         return child
 
     return {"crossover": crossover, "mutate": mutate}
+```

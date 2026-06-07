@@ -3,6 +3,7 @@ import logging
 import subprocess
 import numpy as np
 import os
+import sys
 from omegaconf import DictConfig
 
 from utils.utils import *
@@ -240,7 +241,7 @@ class ReEvo:
         # Execute the python file with flags
         with open(individual["stdout_filepath"], 'w',encoding="utf-8") as f:
             eval_file_path = f'{self.root_dir}/problems/{self.problem}/eval.py' if self.problem_type != "black_box" else f'{self.root_dir}/problems/{self.problem}/eval_black_box.py' 
-            process = subprocess.Popen(['python', '-u', eval_file_path, f'{self.problem_size}', self.root_dir, "train"],
+            process = subprocess.Popen([sys.executable, '-u', eval_file_path, f'{self.problem_size}', self.root_dir, "train"],
                                         stdout=f, stderr=f)
 
         block_until_running(individual["stdout_filepath"], log_status=True, iter_num=self.iteration, response_id=response_id)
